@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul class="list-group">
+    {% for item in Movies_list %}
+    <li class="list-group-item">
+        <span class="text-info"> Movie Name: </span> <span> {{ item.Movie.name }}</span>
+        <br>
+        <span class="text-info"> Movie Date: </span> <span> {{ item.Movie.data }}</span>
+        <br>
+        <span class="text-info"> Publisher: </span> <span> {{ item.Movie.publisher }}</span>
+        <br>
+        <span class="text-info"> Rating: </span> <span class="badge badge-primary badge-pill"> {{ item.Movie_rating }}</span>
+        <br>
+        <span class="text-info"> Number of reviews: </span> <span> {{ item.number_of_reviews }}</span>
+        <br>
+        {% if item.Movie_rating is null %}
+        <span class="text-secondary"> Provide a rating and write the first review for this movie.</span>
+        <br>
+        {% endif%}
+
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
